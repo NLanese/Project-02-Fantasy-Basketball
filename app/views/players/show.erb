@@ -7,4 +7,10 @@
 <h4>Points Per Game <%= @player.ppg %></h4>
 <h4>Assists Per Game <%= @player.apg %></h4>
 <h4>Rebounds Per Game <%= @player.rpg %></h4>
+<% if (@player.user.id != "" && @player.user.id != "") %>
+    <h3>Currently playing for 
+        <a href= "/users/<%= @player.user.slug %>">
+            <%= @player.user.name %>
+        </a>
+    </h3>
 <% end %>
