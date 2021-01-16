@@ -1,0 +1,8 @@
+<h1>List of all Teams</h1>
+<% @teams.each do | team | %>
+    <h4>
+        <a href= '/teams/<%= team.slug %>'>
+            <%= team.name %>
+        </a>
+    </h4>
+<% end %>

@@ -1,0 +1,10 @@
+<h1><%= @player.name %></h1>
+<h2>
+    <a href= "/teams/<%= @player.team.slug %>">
+        <%= @player.team.name %>
+    </a> 
+</h2>
+<h4>Points Per Game <%= @player.ppg %></h4>
+<h4>Assists Per Game <%= @player.apg %></h4>
+<h4>Rebounds Per Game <%= @player.rpg %></h4>
+<% end %>

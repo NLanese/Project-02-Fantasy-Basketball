@@ -1,0 +1,9 @@
+<h1>The <%= @team.name %></h1>
+<h3>Roster:</h3>
+<% @team.players.each do | sel | %>
+    <p>
+        <a href= '/players/<%= sel.slug %>'> 
+            <%= sel.name %>
+        </a>
+    </p>
+<% end %>

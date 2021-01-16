@@ -1,11 +1,30 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+  end
+
+  get '/teams/all' do
+    @teams = Team.all
+    erb :'teams/all'
+  end
+
+  get '/teams/:slug' do
+    @team = Team.find_by_slug(params[:slug])
+    erb :'teams/show'
+  end
+
+  get '/players/all' do
+    @players = Player.all
+    erb :'players/all'
+  end
+
+  get '/players/:slug' do
+    @player = Player.find_by_slug(params[:slug])
+    erb :'players/show'
   end
 
   get '/' do    # GOOD #
