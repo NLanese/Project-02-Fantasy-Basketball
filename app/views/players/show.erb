@@ -9,7 +9,7 @@
 <h4>Rebounds Per Game <%= @player.rpg %></h4>
 <% if (@player.user.id != "" && @player.user.id != "") %>
     <h3>Currently playing for 
-        <a href= "/users/<%= @player.user.slug %>">
+        <a href= "/users/show/<%= @player.user.slug %>">
             <%= @player.user.name %>
         </a>
     </h3>

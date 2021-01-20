@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
       @session = session
-      redirect to "users/show/#{@user.slug}"
+      redirect to "/users/show/#{@user.slug}"
     else
       session[:success] = true
       @session = session
@@ -47,7 +47,7 @@ class ApplicationController < Sinatra::Base
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
       @session = session
-      redirect to "users/show/#{@user.slug}"
+      redirect to "/users/show/#{@user.slug}"
     else
       session[:success] = true
       @session = session
@@ -83,8 +83,36 @@ class ApplicationController < Sinatra::Base
       @user = User.create(name: params[:name], password: params[:password], email: params[:email])
       session[:user_id] = true
       @session = session
-      redirect to "users/show/#{@user.slug}"
+      redirect to "/users/show/#{@user.slug}"
+    end
   end
+
+  get '/users/show/:slug' do
+    @user = User.find(params[:slug])
+    @session = session
+    erb :'users/show'
+  end
+
+  post '/users/trade-between/:slug1/:slug2' do
+    @user1 = User.find_by_slug(params[:slug1])
+    @user2 = User.find_by_slug(params[:slug2])
+    erb :'users/trade'
+  end
+
+  post '/users/submit-trade' do
+        
+  end
+
+  get '/users/:slug/trade-requests' do
+    if Helpers.is_logged_in?(session)
+      @user = User.find_by_slug(params[:slug])
+      erb :'users/trade-request'
+    else
+      redirect to '/users/login'
+    end
+  end
+
+
 
 
 end
