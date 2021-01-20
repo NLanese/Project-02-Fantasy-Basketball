@@ -1,5 +1,5 @@
 require 'active_record'
-class Team < AcitveRecord::Base
+class Team < ActiveRecord::Base
     has_many :players
     has_many :users, through: :players
 
@@ -9,7 +9,7 @@ class Team < AcitveRecord::Base
     end
 
     def self.find_by_slug(slug)
-        User.all.each | user | do 
+        User.all.each do | user | 
             if user.slug == slug
                 return user
             end

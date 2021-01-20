@@ -2,7 +2,7 @@ require 'active_record'
 db_options = {adapter: 'sqlite3'}
 ActiveRecord::Base.establish_connection(db_options)
 
-class Helpers < AcitveRecord::Base
+class Helpers < ActiveRecord::Base
     def self.is_logged_in?(session)
         if session[:user_id]
             true

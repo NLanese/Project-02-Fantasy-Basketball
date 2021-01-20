@@ -1,4 +1,4 @@
-class User < AcitveRecord::Base
+class User < ActiveRecord::Base
     has_secure_password
     has_many :players 
     has_many :teams, through: :players
@@ -37,7 +37,7 @@ class User < AcitveRecord::Base
     end
 
     def self.find_by_slug(slug)
-        User.all.each | user | do 
+        User.all.each do | user |
             if user.slug == slug
                 return user
             end
