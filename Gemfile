@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
+gem 'corneal_new _APP-NAME'
 
 group :test do
   gem 'rspec'
