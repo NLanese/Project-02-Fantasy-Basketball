@@ -6,14 +6,14 @@ class Player < ActiveRecord::Base
     belongs_to :user
 
     def slug
-        slug = user.name.tr(" ", "-")
+        slug = self.name.tr(" ", "-")
         return slug
     end
 
     def self.find_by_slug(slug)
-        User.all.each do | user | 
-            if user.slug == slug
-                return user
+        Player.all.each do | p | 
+            if p.slug == slug
+                return p
             end
         end
     end

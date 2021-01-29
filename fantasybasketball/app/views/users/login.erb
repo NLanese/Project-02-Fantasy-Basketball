@@ -1,9 +1,9 @@
 <h3>Login</h3>
-<% if !@session[:success] %>
+<% if !(@session[:success]) %>
     <h4>Login Error: Please Enter the Correct Information</h4>
 <% end %>
 <form method= "post" action= "/users/login"
     <h5>Enter a username <input type= "text" name= "name"></h5>
     <h5>Enter a password <input type= "text" name= "password"></h5>
-    <h5>Sumbit<input type= "submit">
+    <h5><input type= "submit"></h5>
 </form>

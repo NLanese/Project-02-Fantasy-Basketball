@@ -1,4 +1,4 @@
-class CreatePlayers < ActiveRecord::Migration[6.1]
+class CreatePlayers < ActiveRecord::Migration
 
     def change 
         create_table :players do | t |

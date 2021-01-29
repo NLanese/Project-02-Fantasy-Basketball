@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     end
 
     def slug
-        slug = user.name.tr(" ", "-")
+        slug = self.name.tr(" ", "-")
         return slug
     end
 

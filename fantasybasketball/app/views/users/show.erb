@@ -1,15 +1,3 @@
-<h1><%= @user.name %>'s Roster</h1>
-<% @user.players.each do | player | %>
-    <h5>
-        <%= player.number %>. <a href= "/players/<%= player.slug %>"> 
-            <%= player.name %><% if @user == Helpers.current_user(@session) %><form method= "post" action= "/players/drop/<%= player.slug %>"><input type= "submit" name= "Drop" value= "Drop"></form>
-        </a>
-    </h5>
-<% end %>
-<% if Helpers.is_logged_in?(@session)  && Helpers.current_user(@session) != @user %>
-<form method= "post" action= "/users/trade-between/<%= Helpers.current_user(@session).slug %>/<%= @user.slug %>">
-    <h3>
-        Request a Trade <input type= "submit" name= "Request">
-    </h3>
-</form>
-<% end %>
+<h1>
+  <%= @user.name %>'s Roster
+</h1>

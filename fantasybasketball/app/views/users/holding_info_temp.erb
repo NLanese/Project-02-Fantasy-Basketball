@@ -1,0 +1,35 @@
+
+USERS SHOW PAGE
+<% if @user.players %>
+    <% @user.players.each do | player | %>
+        <h5>
+            <%= player.number %>. <a href= "/players/<%= player.slug %>"> 
+                <%= player.name %><% if @user == Helpers.current_user(@session) %>
+                    <form method= "post" action= "/players/drop/<%= player.slug %>"><input type= "submit" name= "Drop" value= "Drop"></form><% end %>
+            </a>
+        </h5>
+    <% end %>
+<% else %>
+    <h4>There are currently no players on this roster.</h4>
+    <% if @user == Helpers.current_user(@session) %>
+        <a href= "/players/all">CLick here to Draft</a>
+    <% end %>
+<% end %>
+<% if Helpers.is_logged_in?(@session)  && Helpers.current_user(@session) == @user %>
+    <form method= "post" action= "/users/trade-between/<%= Helpers.current_user(@session).slug %>/<%= @user.slug %>">
+        <h3>
+            Request a Trade <input type= "submit" name= "Request">
+        </h3>
+    </form>
+<% end %>
+
+
+
+PLAYERS SHOW
+<% if (@player.user.id != "" && @player.user.id != nil) %>
+    <h3>Currently playing for 
+        <a href= "/users/show/<%= @player.user.slug %>">
+            <%= @player.user.name %>
+        </a>
+    </h3>
+<% end %>
