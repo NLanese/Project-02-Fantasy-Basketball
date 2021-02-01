@@ -4,5 +4,11 @@
         <a href= '/players/<%= player.slug %>'>
             <%= player.name %>
         </a>
+        <% if player.user == nil && Helpers.is_logged_in?(@session) %>
+            <form method= "post" action= "/players/draft/<%= player.slug %>"> <input type= "submit" value= "Draft" name= "Draft"> 
+            </form>
+        <% else %>
+            <%= player.user %>
+        <% end %>
     </h4>
 <% end %>

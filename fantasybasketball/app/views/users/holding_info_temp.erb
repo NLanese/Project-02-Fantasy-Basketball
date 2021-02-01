@@ -1,6 +1,6 @@
 
 USERS SHOW PAGE
-<% if @user.players %>
+<% if (@user.players != nil || @user.players != []) %>
     <% @user.players.each do | player | %>
         <h5>
             <%= player.number %>. <a href= "/players/<%= player.slug %>"> 
@@ -12,7 +12,7 @@ USERS SHOW PAGE
 <% else %>
     <h4>There are currently no players on this roster.</h4>
     <% if @user == Helpers.current_user(@session) %>
-        <a href= "/players/all">CLick here to Draft</a>
+        <a href= "/players/all">Click here to Draft</a>
     <% end %>
 <% end %>
 <% if Helpers.is_logged_in?(@session)  && Helpers.current_user(@session) == @user %>

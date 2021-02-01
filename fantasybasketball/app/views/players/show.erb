@@ -4,6 +4,15 @@
         <%= @player.team.name %>
     </a> 
 </h2>
-<h4>Points Per Game <%= @player.ppg %></h4>
-<h4>Assists Per Game <%= @player.apg %></h4>
-<h4>Rebounds Per Game <%= @player.rpg %></h4>
+<h3>
+    Points Per Game <%= @player.ppg %>
+    Assists Per Game <%= @player.apg %>
+    Rebounds Per Game <%= @player.rpg %>
+</h3>
+<h4>
+    <% if @player.user != nil %>
+        A part of <%= @player.user %>'s Roster
+    <% else %>
+        <form method= "post" action= "/players/draft/<%= @player.slug %>"> <input type= "submit" value= "Draft" name= "Draft"> </form>
+    <% end %>
+</h4>

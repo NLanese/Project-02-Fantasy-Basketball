@@ -1,0 +1,10 @@
+<% @users.each do | user | %>
+    <h2> <%= user.name %> </h2>
+    <h3>
+      <% i = 1 %>
+      <% user.players.each do | player | %>
+        <%= "#{i}. #{player.name}" %>
+        <% i = i + 1 %>
+      <% end %>
+    </h3>
+<% end %> 

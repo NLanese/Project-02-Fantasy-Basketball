@@ -3,7 +3,7 @@ require './config/environment'
 class UsersController < ApplicationController
 
 
-    get '/users/login' do  
+    get '/users/login' do  # GOOD #
         if Helpers.is_logged_in?(session) # GOOD #
           @user = User.find(session[:user_id]) # GOOD #
           @session = session # GOOD #
@@ -25,6 +25,11 @@ class UsersController < ApplicationController
           @session = session  # GOOD #
           erb :'users/signup' # GOOD #
         end
+    end
+
+    get '/users/all' do
+      @users = User.all
+      erb :'users/all'
     end
     
     post '/users/login' do # GOOD #
@@ -60,7 +65,6 @@ class UsersController < ApplicationController
     end
     
     get '/users/show/:slug' do # GOOD #
-        binding.pry
         @user = User.find_by_slug(params[:slug]) # GOOD #
         @session = session # GOOD #
         erb :'users/show' # GOOD #
