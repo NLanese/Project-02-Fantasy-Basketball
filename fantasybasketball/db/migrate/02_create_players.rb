@@ -5,6 +5,7 @@ class CreatePlayers < ActiveRecord::Migration
             t.string :name
             t.integer :number
             t.integer :team_id
+            t.integer :user_id
             t.string :ppg
             t.string :apg
             t.string :rpg
