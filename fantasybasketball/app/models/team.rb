@@ -42,9 +42,9 @@ end
 # 22. Orlando
 # 23. Philadelphia
 # 24. Phoenix
-# 25. Sacremento
-# 26. San Antonio
-# 27. Toronto
-# 28. Utah
-# 29. Washington
-# 30. Portland Trailblazers
+# 25. Portland Trailblazers
+# 26. Sacremento
+# 27. San Antonio
+# 28. Toronto
+# 29. Utah
+# 30. Washington

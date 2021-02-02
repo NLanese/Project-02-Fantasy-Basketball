@@ -9,8 +9,13 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get "/" do
+  get "/" do # GOOD #
     erb :index
+  end
+
+  get "/logout" do # GOOD #
+    session.clear 
+    redirect to "/"
   end
   
 

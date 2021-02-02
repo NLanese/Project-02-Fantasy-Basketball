@@ -1,10 +1,35 @@
 <h1>
-  <%= @user.name %>'s Roster
+  <%= @user.name %>'s Roster:
 </h1>
+<div>
+  <% if @user.players.length > 0 %>
 
+    <% @user.players.each do | player | %>
+      <h4><%= "#{player.number}. #{player.name} -- #{player.position}" %></h4>
+      <% if @user == Helpers.current_user(session) %>
+        <form method= "post" action= "/players/drop/<%= player.slug %>"><input type= "submit" value= "Drop"></form>
+      <% end %>
+    <% end %>
 
+  <% else %>
+
+    <h3> No players on this team currently </h3>
+    <% if @user == Helpers.current_user(@session) %>
+      <p>Click <a href= "/players/all">here</a> to Draft a team</p>
+    <% end %>
+
+  <% end %>
+</div>
 <h4>
+<br>
   View all other <a href= "/users/all">Users</a>
+<br>
   View all <a href= "/players/all">Players</a>
+<br>
   View all <a href= "/teams/all">Teams</a>
 </h4>
+<div>
+      <h3>
+        Click <a href= "/logout">here</a> to sign out any accounts
+      </h3>
+</div>
