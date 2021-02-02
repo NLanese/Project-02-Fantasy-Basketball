@@ -1,6 +1,6 @@
 <h2>Sign Up</h2>
 <% if !@session[:success] %>
-    <h4>Sign Up Error: Please Fill all Fields</h4>
+    <h4>Sign Up Error: Please Fill all Fields with Unqiue Information</h4>
 <% end %>
 <form method= "post" action= "/users/signup">
     <h4>Enter your email <input type= "text" name= "email"></h4>

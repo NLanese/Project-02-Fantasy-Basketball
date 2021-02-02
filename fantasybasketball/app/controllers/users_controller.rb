@@ -51,7 +51,12 @@ class UsersController < ApplicationController
     end
     
     post '/users/signup' do # GOOD #
-        if (params[:name] == "" || params[:password] == "" || params[:email] == "") # GOOD #
+        valid = true
+        User.each do | user |
+          if (params[:name] == user.name || params[:email] == user.email)
+            valid = false
+          end
+        if (params[:name] == "" || params[:password] == "" || params[:email] == "" || !valid ) # GOOD #
           session[:success] = false # GOOD #
           @session = session # GOOD #
           erb :'users/signup' # GOOD #
